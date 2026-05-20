@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "paper-head-hud",
+	"version": "${version}",
+	"name": "PaperHeadHud x ElCezarx",
+	"description": "Esto es un mod sencillo que muestra tu cara de la skin que estes usando y abajo encuentras tus respectivas coordenadas, dias jugados y el tiempo que llevas en tu mundo",
+	"authors": [
+		"ElCezarx"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/paper-head-hud/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.elcezarx.papereadhud.PaperHeadHud"
+		],
+		"client": [
+			"com.elcezarx.papereadhud.client.PaperHeadHudClient"
+		]
+	},
+	"mixins": [
+		"paper-head-hud.mixins.json",
+		{
+			"config": "paper-head-hud.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.2",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
