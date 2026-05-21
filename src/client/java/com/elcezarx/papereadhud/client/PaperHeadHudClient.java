@@ -74,18 +74,20 @@ public class PaperHeadHudClient implements ClientModInitializer {
         long day = mc.player.level().getDayTime() / 24000L + 1;
 
         long elapsed = Minecraft.getInstance().player.level().getGameTime() / 20;
-        long minutes = elapsed / 60;
+
+        long hours = elapsed / 3600;
+        long minutes = (elapsed % 3600) / 60;
         long seconds = elapsed % 60;
 
         String hudText =
                 "§eXYZ §f" + posX + " " + posY + " " + posZ
                         + " §e| DAY §f" + day
-                        + " §7[" + minutes + ":" + String.format("%02d", seconds) + "]";
+                        + " §e[" + String.format("%02d:%02d:%02d", hours, minutes, seconds) + "]";
 
         graphics.drawString(
                 Minecraft.getInstance().font,
                 hudText,
-                x - 70,
+                graphics.guiWidth() / 2 - Minecraft.getInstance().font.width(hudText) / 2,
                 y + 20,
                 0xFFFFFFFF,
                 true
